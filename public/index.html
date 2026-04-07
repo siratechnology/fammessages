@@ -9,244 +9,144 @@
 @font-face {
   font-family: 'NRT';
   src: url('/fonts/NRT-Reg.ttf') format('truetype');
-  font-weight: normal;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'NRT', 'Segoe UI', Tahoma, Arial, sans-serif;
-  background: #f0f4f8;
-  color: #1e293b;
-  direction: rtl;
-  min-height: 100vh;
-  padding-bottom: 90px;
-  font-size: 14px;
+  font-family: 'NRT', Tahoma, Arial, sans-serif;
+  background: #f0f4f8; color: #1e293b;
+  direction: rtl; min-height: 100vh; padding-bottom: 90px;
 }
 
+/* ── Header ── */
 .header {
-  background: #1d4ed8;
-  color: white;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background: #1d4ed8; color: white;
+  padding: 12px 16px; font-size: 15px; font-weight: bold;
+  display: flex; align-items: center; gap: 8px;
+  position: sticky; top: 0; z-index: 100;
   box-shadow: 0 2px 8px rgba(29,78,216,0.3);
 }
 
-.content { padding: 10px; max-width: 700px; margin: 0 auto; }
+/* ── Cards ── */
+.content { padding: 10px; max-width: 720px; margin: 0 auto; }
+.card { background: white; border-radius: 14px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+.card-title { font-size: 13px; font-weight: bold; color: #1d4ed8; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 10px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-}
-
-.card-title {
-  font-size: 13px;
-  font-weight: bold;
-  color: #1d4ed8;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-label { font-size: 11px; color: #64748b; display: block; margin-bottom: 3px; margin-top: 10px; font-weight: bold; }
-
-textarea, select, input[type=text] {
-  width: 100%; padding: 9px 11px; border-radius: 8px;
-  border: 1.5px solid #e2e8f0; font-size: 13px;
-  background: #f8fafc; color: #1e293b;
-  font-family: 'NRT', inherit; direction: rtl;
-  transition: border-color 0.15s;
-}
-textarea:focus, select:focus, input[type=text]:focus { outline: none; border-color: #1d4ed8; background: white; }
+/* ── Inputs ── */
+label { font-size: 11px; color: #64748b; display: block; margin-bottom: 3px; margin-top: 10px; font-weight: bold; font-family: 'NRT', inherit; }
+textarea, select { width: 100%; padding: 9px 11px; border-radius: 8px; border: 1.5px solid #e2e8f0; font-size: 13px; background: #f8fafc; color: #1e293b; font-family: 'NRT', inherit; direction: rtl; transition: border-color 0.15s; }
+textarea:focus, select:focus { outline: none; border-color: #1d4ed8; background: white; }
 textarea { resize: vertical; }
 
-.btn {
-  padding: 8px 14px; border-radius: 9px; border: none;
-  cursor: pointer; font-size: 13px; font-weight: bold;
-  font-family: 'NRT', inherit; transition: all 0.15s;
-  display: inline-flex; align-items: center; gap: 5px;
-}
+/* ── Buttons ── */
+.btn { padding: 8px 14px; border-radius: 9px; border: none; cursor: pointer; font-size: 13px; font-weight: bold; font-family: 'NRT', inherit; transition: all 0.15s; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .btn:active { transform: scale(0.96); }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-.btn-blue { background: #1d4ed8; color: white; }
-.btn-blue:hover:not(:disabled) { background: #1e40af; }
-.btn-gray { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
-.btn-gray:hover { background: #e2e8f0; }
+.btn-blue { background: #1d4ed8; color: white; } .btn-blue:hover:not(:disabled) { background: #1e40af; }
+.btn-gray { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; } .btn-gray:hover { background: #e2e8f0; }
+.btn-green { background: #16a34a; color: white; font-size: 14px; padding: 12px 20px; } .btn-green:hover:not(:disabled) { background: #15803d; }
 .btn-red { background: #ef4444; color: white; }
-.btn-green { background: #16a34a; color: white; font-size: 14px; padding: 12px 20px; }
-.btn-green:hover:not(:disabled) { background: #15803d; }
+.btn-outline { background: white; color: #1d4ed8; border: 1.5px solid #1d4ed8; } .btn-outline:hover { background: #eff6ff; }
 
-/* Message type tabs */
+/* ── Message type tabs ── */
 .mtabs { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 12px; }
-.mtab {
-  padding: 7px 14px; border-radius: 20px;
-  border: 1.5px solid #e2e8f0; cursor: pointer;
-  font-size: 13px; font-weight: bold; color: #64748b;
-  background: #f8fafc; font-family: 'NRT', inherit; transition: all 0.15s;
-}
+.mtab { padding: 7px 13px; border-radius: 20px; border: 1.5px solid #e2e8f0; cursor: pointer; font-size: 13px; font-weight: bold; color: #64748b; background: #f8fafc; font-family: 'NRT', inherit; transition: all 0.15s; }
 .mtab.on { background: #1d4ed8; color: white; border-color: #1d4ed8; }
-
-/* Layout tabs */
-.ltab {
-  padding: 6px 16px; border-radius: 20px;
-  border: 1.5px solid #e2e8f0; cursor: pointer;
-  font-size: 13px; font-weight: bold; color: #64748b;
-  background: #f8fafc; font-family: 'NRT', inherit; transition: all 0.15s;
-}
+.ltab { padding: 6px 14px; border-radius: 20px; border: 1.5px solid #e2e8f0; cursor: pointer; font-size: 13px; font-weight: bold; color: #64748b; background: #f8fafc; font-family: 'NRT', inherit; transition: all 0.15s; }
 .ltab.on { background: #7c3aed; color: white; border-color: #7c3aed; }
 
-/* ── GROUP + TOPIC ROWS ─────────────────────────────────────────────────── */
-.group-topic-table { display: flex; flex-direction: column; gap: 6px; }
-
-.gt-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 10px;
-  overflow: hidden;
-  background: white;
-  transition: border-color 0.15s;
+/* ── Grade sections ── */
+.grade-section { margin-bottom: 14px; }
+.grade-header {
+  display: flex; align-items: center; gap: 8px;
+  background: #1d4ed8; color: white;
+  padding: 8px 12px; border-radius: 9px 9px 0 0;
+  font-size: 13px; font-weight: bold;
 }
-.gt-row:hover { border-color: #93c5fd; }
-.gt-row.all-sel { border-color: #1d4ed8; }
+.grade-header .grade-num { font-size: 15px; }
+.grade-rows { border: 1.5px solid #e2e8f0; border-top: none; border-radius: 0 0 9px 9px; overflow: hidden; }
 
-.gt-name-col {
-  min-width: 90px;
-  max-width: 110px;
-  padding: 10px 10px;
-  background: #f8fafc;
+/* ── Group row ── */
+.gr-row {
+  display: flex; align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.1s;
+}
+.gr-row:last-child { border-bottom: none; }
+
+.gr-name {
+  min-width: 52px; max-width: 52px;
+  padding: 9px 6px; text-align: center;
+  font-size: 13px; font-weight: bold; color: #1d4ed8;
+  cursor: pointer; background: #f8fafc;
   border-left: 1.5px solid #e2e8f0;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-shrink: 0;
+  user-select: none; flex-shrink: 0;
   transition: background 0.15s;
-  user-select: none;
+  position: relative;
 }
-.gt-name-col:hover { background: #eff6ff; }
-.gt-name-col.grp-sel { background: #dbeafe; }
+.gr-name:hover { background: #eff6ff; }
+.gr-name.sel { background: #dbeafe; }
+.gr-name.sel::after { content: '✓'; position: absolute; top: 2px; left: 3px; font-size: 9px; color: #1d4ed8; }
 
-.gt-name-text {
-  font-size: 13px;
-  font-weight: bold;
-  color: #1e293b;
-  line-height: 1.3;
-  word-break: break-word;
-}
-.gt-name-check {
-  font-size: 16px;
-  color: #1d4ed8;
-  margin-top: 4px;
-  display: none;
-}
-.gt-name-col.grp-sel .gt-name-check { display: block; }
-
-.gt-topics-col {
-  flex: 1;
-  padding: 8px 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  align-items: center;
+.gr-topics {
+  flex: 1; padding: 6px 8px;
+  display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
+  min-height: 40px;
 }
 
-/* Topic pills */
+/* ── Topic pills ── */
 .tpill {
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
-  padding: 4px 11px;
-  border-radius: 20px;
-  border: 1.5px solid #e2e8f0;
-  cursor: pointer;
-  color: #64748b;
-  background: #f8fafc;
-  transition: all 0.15s;
-  user-select: none;
-  font-family: 'NRT', inherit;
-  white-space: nowrap;
+  display: inline-flex; align-items: center;
+  font-size: 12px; padding: 3px 10px;
+  border-radius: 20px; border: 1.5px solid #e2e8f0;
+  cursor: pointer; color: #64748b; background: #f8fafc;
+  transition: all 0.12s; user-select: none;
+  font-family: 'NRT', inherit; white-space: nowrap;
 }
 .tpill.on { background: #1d4ed8; color: white; border-color: #1d4ed8; font-weight: bold; }
 .tpill:hover:not(.on) { border-color: #93c5fd; background: #eff6ff; }
-.tpill.general { }
+.tpill.loading { color: #94a3b8; border-style: dashed; cursor: default; font-size: 11px; }
 
-/* Media */
-.upload-zone {
-  border: 2px dashed #cbd5e1; border-radius: 10px;
-  padding: 18px; text-align: center; cursor: pointer;
-  color: #94a3b8; font-size: 13px; transition: all 0.15s; margin-top: 8px;
-}
+/* ── Media ── */
+.upload-zone { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 16px; text-align: center; cursor: pointer; color: #94a3b8; font-size: 13px; transition: all 0.15s; margin-top: 8px; }
 .upload-zone:hover { border-color: #93c5fd; color: #1d4ed8; background: #f0f9ff; }
 .upload-zone input { display: none; }
-
 .media-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
-.mi { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; }
+.mi { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 9px 12px; }
 .mi-top { display: flex; align-items: center; gap: 8px; }
-.mi-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-.mi-icon.photo { background: #dbeafe; }
-.mi-icon.video { background: #fce7f3; }
-.mi-icon.document { background: #dcfce7; }
-.mi-name { font-size: 12px; font-weight: bold; color: #1e293b; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
-.mi-sub { font-size: 10px; color: #94a3b8; margin-top: 1px; direction: ltr; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.mi-cap { width: 100%; padding: 5px 8px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 12px; background: white; font-family: 'NRT', inherit; margin-top: 7px; direction: rtl; }
+.mi-icon { width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.mi-icon.photo { background: #dbeafe; } .mi-icon.video { background: #fce7f3; } .mi-icon.document { background: #dcfce7; }
+.mi-name { font-size: 12px; font-weight: bold; color: #1e293b; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; font-family: 'NRT', inherit; }
+.mi-sub { font-size: 10px; color: #94a3b8; margin-top: 1px; direction: ltr; font-family: monospace; }
+.mi-cap { width: 100%; padding: 5px 8px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 12px; background: white; font-family: 'NRT', inherit; margin-top: 6px; direction: rtl; }
 .mi-cap:focus { outline: none; border-color: #1d4ed8; }
-.rm { background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 18px; padding: 2px 4px; line-height: 1; flex-shrink: 0; }
+.rm { background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 17px; padding: 2px 4px; line-height: 1; flex-shrink: 0; }
 .rm:hover { color: #ef4444; }
-
 .fileid-box { background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
 .fileid-title { font-size: 11px; font-weight: bold; color: #92400e; margin-bottom: 6px; font-family: 'NRT', inherit; }
-.fileid-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.fileid-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .fileid-in { flex: 1; min-width: 100px; font-size: 11px; direction: ltr; font-family: monospace; padding: 7px 9px; border-radius: 7px; border: 1px solid #fde68a; background: white; }
 
-/* Send bar */
-.send-bar {
-  position: fixed; bottom: 0; left: 0; right: 0;
-  background: white; border-top: 1px solid #e2e8f0;
-  padding: 10px 14px; z-index: 50;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-}
-.send-bar-inner { max-width: 700px; margin: 0 auto; display: flex; align-items: center; gap: 10px; }
-.target-bubble {
-  background: #eff6ff; border: 1px solid #bfdbfe;
-  border-radius: 10px; padding: 8px 12px; text-align: center; flex-shrink: 0;
-}
-.target-num { font-size: 22px; font-weight: bold; color: #1d4ed8; line-height: 1; font-family: 'NRT', inherit; }
+/* ── Send bar ── */
+.send-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #e2e8f0; padding: 10px 14px; z-index: 50; box-shadow: 0 -2px 10px rgba(0,0,0,0.08); }
+.send-bar-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; gap: 10px; }
+.target-bubble { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 7px 12px; text-align: center; flex-shrink: 0; }
+.target-num { font-size: 20px; font-weight: bold; color: #1d4ed8; line-height: 1; font-family: 'NRT', inherit; }
 .target-lbl { font-size: 10px; color: #64748b; font-family: 'NRT', inherit; }
 
+/* ── Misc ── */
+.badge { background: #dbeafe; color: #1d4ed8; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: bold; font-family: 'NRT', inherit; }
 .status { font-size: 12px; color: #64748b; margin-top: 6px; min-height: 16px; font-family: 'NRT', inherit; }
-.status.err { color: #ef4444; }
-.status.ok { color: #16a34a; }
+.status.err { color: #ef4444; } .status.ok { color: #16a34a; }
 .progress { height: 5px; background: #e2e8f0; border-radius: 3px; margin-top: 6px; display: none; overflow: hidden; }
 .progress-fill { height: 100%; background: #1d4ed8; border-radius: 3px; transition: width 0.25s; width: 0%; }
-.log { font-size: 11px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; max-height: 150px; overflow-y: auto; font-family: monospace; margin-top: 8px; display: none; line-height: 1.9; direction: ltr; text-align: left; }
-
-.badge { background: #dbeafe; color: #1d4ed8; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: bold; font-family: 'NRT', inherit; }
+.log { font-size: 11px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; max-height: 180px; overflow-y: auto; font-family: monospace; margin-top: 8px; display: none; line-height: 1.9; direction: ltr; text-align: left; }
 .sep { border: none; border-top: 1px solid #f1f5f9; margin: 10px 0; }
 .tip { font-size: 11px; color: #94a3b8; margin-top: 4px; line-height: 1.6; font-family: 'NRT', inherit; }
-
-.loading-row { display: flex; align-items: center; gap: 8px; padding: 16px; color: #94a3b8; font-size: 13px; }
-.spin { display: inline-block; width: 16px; height: 16px; border: 2px solid #e2e8f0; border-top-color: #1d4ed8; border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+.spin { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+.spin-blue { display: inline-block; width: 12px; height: 12px; border: 2px solid #e2e8f0; border-top-color: #1d4ed8; border-radius: 50%; animation: spin 0.7s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
+.ctrl-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
 .session-banner { background: #ecfdf5; border: 1.5px solid #6ee7b7; border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; font-size: 13px; color: #065f46; font-family: 'NRT', inherit; }
-
-.ctrl-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
 </style>
 </head>
 <body>
@@ -254,16 +154,14 @@ textarea { resize: vertical; }
 <div class="header">
   <span>📨</span>
   <span>ناردنی پەیامی بەکۆمەڵ</span>
-  <span class="badge" id="g-badge" style="margin-right:auto;display:none">0</span>
+  <span class="badge" id="target-badge" style="margin-right:auto">0 ئامانج</span>
 </div>
 
 <div class="content">
 
-<div id="session-banner" class="session-banner" style="display:none">
-  ✅ پەیامەکەت بارکرا لە بۆت — ئێستا گروپ و تاپیک هەڵبژێرە
-</div>
+<div id="session-banner" class="session-banner" style="display:none">✅ پەیامەکەت بارکرا لە بۆت — ئێستا گروپ و تاپیک هەڵبژێرە</div>
 
-<!-- ── STEP 1: MESSAGE/MEDIA ── -->
+<!-- ── COMPOSE ── -->
 <div class="card">
   <div class="card-title">✏️ پەیام یان میدیا</div>
 
@@ -288,21 +186,21 @@ textarea { resize: vertical; }
   <div id="block-media" style="display:none">
     <div class="upload-zone" onclick="document.getElementById('file-input').click()">
       <input type="file" id="file-input" multiple accept="image/*,video/*,*/*" onchange="handleFiles(this.files)">
-      <div style="font-size:28px;margin-bottom:6px">📤</div>
-      <div style="font-weight:bold;color:#475569">کلیک بکە بۆ هەڵبژاردنی فایل</div>
-      <div class="tip">وێنە · ڤیدیۆ · فایل — تا 2GB — تا 10 فایل</div>
+      <div style="font-size:26px;margin-bottom:5px">📤</div>
+      <div style="font-weight:bold;color:#475569;font-family:'NRT',inherit">کلیک بکە بۆ هەڵبژاردنی فایل</div>
+      <div class="tip">وێنە · ڤیدیۆ · فایل — تا 50MB — تا 10 فایل</div>
     </div>
 
     <div class="fileid-box">
-      <div class="fileid-title">🔑 فایلی گەورە؟ file_id بەکاربهێنە (فایلەکە بنێرە بۆ بۆت تا file_id بدەت)</div>
+      <div class="fileid-title">🔑 فایلی گەورە (زیاتر لە 50MB)؟ فایلەکە فۆرواردبکە بۆ بۆت تا file_id بدات، دواتر لێرە بنووسە</div>
       <div class="fileid-row">
         <input class="fileid-in" id="fileid-input" placeholder="AgACAgIAAxkB...">
-        <select id="fileid-type" style="width:auto;font-size:12px">
+        <select id="fileid-type" style="width:auto;font-size:12px;font-family:'NRT',inherit">
           <option value="photo">🖼️ وێنە</option>
           <option value="video">🎬 ڤیدیۆ</option>
           <option value="document">📁 فایل</option>
         </select>
-        <button class="btn btn-gray" style="padding:6px 10px;font-size:12px" onclick="addFileId()">+ زیادکردن</button>
+        <button class="btn btn-outline" style="padding:6px 10px;font-size:12px" onclick="addFileId()">+ زیادکردن</button>
       </div>
     </div>
 
@@ -314,7 +212,6 @@ textarea { resize: vertical; }
       <div class="ltab on" onclick="setLayout('album',this)">A — ئەلبووم</div>
       <div class="ltab" onclick="setLayout('separate',this)">B — جیا جیا</div>
     </div>
-
     <label>کاپشن گشتی</label>
     <textarea id="global-caption" rows="2" placeholder="کاپشن..."></textarea>
   </div>
@@ -322,24 +219,19 @@ textarea { resize: vertical; }
   <div class="status" id="upload-status"></div>
 </div>
 
-<!-- ── STEP 2: GROUPS + TOPICS ── -->
+<!-- ── GROUPS ── -->
 <div class="card">
   <div class="card-title">
     👥 گروپ و تاپیک
-    <span class="badge" id="sel-count">0 ئامانج</span>
-  </div>
-
-  <div class="ctrl-row">
-    <button class="btn btn-gray" style="font-size:12px;padding:6px 10px" onclick="selAllGroups()">هەمووی ✓</button>
-    <button class="btn btn-gray" style="font-size:12px;padding:6px 10px" onclick="deselAllGroups()">هیچ ✗</button>
-    <button class="btn btn-gray" style="font-size:12px;padding:6px 10px" onclick="selAllTopics()">هەمووی تاپیک ✓</button>
-    <button class="btn btn-gray" style="font-size:12px;padding:6px 10px" onclick="deselAllTopics()">هیچ تاپیک ✗</button>
+    <div style="margin-right:auto;display:flex;gap:5px;flex-wrap:wrap">
+      <button class="btn btn-gray" style="font-size:11px;padding:5px 9px" onclick="selAll()">هەمووی ✓</button>
+      <button class="btn btn-gray" style="font-size:11px;padding:5px 9px" onclick="deselAll()">هیچ ✗</button>
+    </div>
   </div>
 
   <div id="groups-area">
-    <div class="loading-row">
-      <div class="spin"></div>
-      بارکردنی گروپەکان...
+    <div style="display:flex;align-items:center;gap:8px;padding:16px;color:#94a3b8;font-family:'NRT',inherit">
+      <div class="spin-blue"></div> بارکردن...
     </div>
   </div>
   <div class="status" id="groups-status"></div>
@@ -357,7 +249,7 @@ textarea { resize: vertical; }
         <button class="btn btn-red" onclick="stopSend()" id="stop-btn" style="display:none">وەستان</button>
         <button class="btn btn-green" onclick="sendAll()" id="send-btn" style="flex:1;justify-content:center">ناردن بۆ هەمووی 📨</button>
       </div>
-      <div style="font-size:11px;color:#94a3b8;margin-top:3px;text-align:center" id="send-prog"></div>
+      <div style="font-size:11px;color:#94a3b8;margin-top:3px;text-align:center;font-family:'NRT',inherit" id="send-prog"></div>
     </div>
   </div>
   <div class="progress" id="prog"><div class="progress-fill" id="prog-fill"></div></div>
@@ -367,24 +259,24 @@ textarea { resize: vertical; }
 <!-- ── LOG ── -->
 <div class="card" id="log-card" style="display:none">
   <div class="card-title">📋 لۆگ</div>
-  <div class="log" id="log" style="display:block;max-height:200px"></div>
+  <div class="log" id="log" style="display:block"></div>
 </div>
 
-</div>
+</div><!-- /content -->
 
 <script>
 if (window.Telegram?.WebApp) { Telegram.WebApp.ready(); Telegram.WebApp.expand(); }
 
-let groups = [];           // [{id, title, is_forum, topics:[]}]
+// State
+let gradesData = {};       // { grade: [{id,name,letter,topics:[]}] }
 let groupSel = new Set();  // selected group ids
-let topicSel = new Map();  // groupId -> Set of thread_ids ('0' = general, 'none' = no topics)
+let topicSel = new Map();  // groupId -> Set<tid string>
 let msgType = 'text', layout = 'album';
 let mediaItems = [];
 let stopFlag = false;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 (async () => {
-  // Session from bot
   const sid = new URLSearchParams(location.search).get('session');
   if (sid) {
     try {
@@ -396,7 +288,7 @@ let stopFlag = false;
           setType('text', document.querySelectorAll('.mtab')[0]);
           document.getElementById('msg-text').value = s.caption || '';
         } else {
-          const idx = s.type==='photo'?1:s.type==='video'?2:3;
+          const idx = { photo:1, video:2, document:3 }[s.type] || 1;
           setType(s.type, document.querySelectorAll('.mtab')[idx]);
           mediaItems = s.items || [];
           if (s.caption) document.getElementById('global-caption').value = s.caption;
@@ -405,193 +297,220 @@ let stopFlag = false;
       }
     } catch(e) {}
   }
-  await loadEverything();
+  await loadAll();
 })();
 
-// ── Load groups + topics together ─────────────────────────────────────────────
-async function loadEverything() {
-  setArea('<div class="loading-row"><div class="spin"></div>بارکردنی گروپەکان...</div>');
+// ── Load groups + topics ──────────────────────────────────────────────────────
+async function loadAll() {
+  setArea('<div style="display:flex;align-items:center;gap:8px;padding:16px;color:#94a3b8;font-family:NRT,inherit"><div class="spin-blue"></div>بارکردنی گروپ و تاپیکەکان...</div>');
   try {
     const r = await api('/api/groups');
     if (!r.ok) { st('groups-status','❌ ' + r.error,'err'); return; }
-    groups = r.groups.map(g => ({ ...g, topics: [] }));
-    groupSel = new Set(groups.map(g => g.id));
+    gradesData = r.grades;
 
-    document.getElementById('g-badge').style.display = '';
-    document.getElementById('g-badge').textContent = groups.length + ' گروپ';
+    // Get all group IDs
+    const allIds = [];
+    for (const grade in gradesData) for (const g of gradesData[grade]) { allIds.push(g.id); g.topics = []; }
 
-    // Load topics for all forum groups in parallel
-    const forumGroups = groups.filter(g => g.is_forum);
-    if (forumGroups.length > 0) {
-      setArea('<div class="loading-row"><div class="spin"></div>بارکردنی تاپیکەکان (' + forumGroups.length + ' فۆرەم)...</div>');
-      const bulkR = await api('/api/topics-bulk', { chat_ids: forumGroups.map(g => g.id) });
-      if (bulkR.ok) {
-        for (const g of groups) {
-          if (g.is_forum && bulkR.results[g.id]) {
-            g.topics = bulkR.results[g.id];
-          }
+    // Select all by default
+    groupSel = new Set(allIds);
+    for (const id of allIds) topicSel.set(id, new Set(['0'])); // start with general only
+
+    // Render skeleton first
+    renderTable();
+    updateCount();
+
+    // Load topics in bulk (batches)
+    st('groups-status','⏳ بارکردنی تاپیکەکان...','');
+    const tr = await api('/api/topics-bulk', { chat_ids: allIds });
+    if (tr.ok) {
+      for (const grade in gradesData) {
+        for (const g of gradesData[grade]) {
+          const topics = tr.results[g.id] || [];
+          g.topics = topics;
+          // Update topic selection to include all topics
+          const tset = new Set(['0']); // general
+          topics.forEach(t => tset.add(String(t.id)));
+          topicSel.set(g.id, tset);
         }
       }
+      renderTable();
+      updateCount();
     }
-
-    // Init topic selections — all selected
-    for (const g of groups) {
-      const set = new Set();
-      if (g.is_forum) {
-        set.add('0'); // general
-        g.topics.forEach(t => set.add(String(t.message_thread_id)));
-      } else {
-        set.add('none');
-      }
-      topicSel.set(g.id, set);
-    }
-
-    renderTable();
-    st('groups-status', '✓ ' + groups.length + ' گروپ و تاپیکەکانیان بارکران', 'ok');
-    updateCount();
+    st('groups-status','✓ هەمووی بارکرا','ok');
   } catch(e) { st('groups-status','❌ ' + e.message,'err'); }
 }
 
-// ── Render group+topic table ──────────────────────────────────────────────────
+// ── Render grade sections ─────────────────────────────────────────────────────
 function renderTable() {
   const area = document.getElementById('groups-area');
-  area.className = 'group-topic-table';
   area.innerHTML = '';
 
-  for (const g of groups) {
-    const sel = groupSel.has(g.id);
-    const tSel = topicSel.get(g.id) || new Set();
+  for (const grade in gradesData) {
+    const grps = gradesData[grade];
+    const section = document.createElement('div');
+    section.className = 'grade-section';
 
-    const row = document.createElement('div');
-    row.className = 'gt-row' + (sel ? ' all-sel' : '');
-    row.dataset.gid = g.id;
+    // Grade header
+    const allInGradeSel = grps.every(g => groupSel.has(g.id) && (topicSel.get(g.id)?.size || 0) > 0);
+    const hdr = document.createElement('div');
+    hdr.className = 'grade-header';
+    hdr.innerHTML = `
+      <span class="grade-num">صەفی ${grade}</span>
+      <span style="font-size:11px;opacity:0.8">${grps.length} پۆل</span>
+      <button class="btn" style="margin-right:auto;padding:4px 10px;font-size:11px;background:rgba(255,255,255,0.2);color:white;border:1px solid rgba(255,255,255,0.4);border-radius:7px;font-family:'NRT',inherit" onclick="toggleGrade('${grade}')">
+        ${allInGradeSel ? 'هیچ ✗' : 'هەمووی ✓'}
+      </button>
+    `;
 
-    // Left: group name column
-    const nameCol = document.createElement('div');
-    nameCol.className = 'gt-name-col' + (sel ? ' grp-sel' : '');
-    nameCol.innerHTML = `<div class="gt-name-text">${esc(g.title)}</div><div class="gt-name-check">✓</div>`;
-    nameCol.onclick = () => toggleGroup(g.id);
+    // Rows
+    const rows = document.createElement('div');
+    rows.className = 'grade-rows';
 
-    // Right: topics column
-    const topicsCol = document.createElement('div');
-    topicsCol.className = 'gt-topics-col';
-    topicsCol.id = 'tc-' + g.id;
+    for (const g of grps) {
+      const sel = groupSel.has(g.id) && (topicSel.get(g.id)?.size || 0) > 0;
+      const tset = topicSel.get(g.id) || new Set();
 
-    if (g.is_forum) {
-      // General pill
-      const genPill = makePill('گشتی', g.id, '0', tSel.has('0'));
-      topicsCol.appendChild(genPill);
-      // Topic pills
-      for (const t of g.topics) {
-        const tid = String(t.message_thread_id);
-        const pill = makePill(t.name, g.id, tid, tSel.has(tid));
-        topicsCol.appendChild(pill);
+      const row = document.createElement('div');
+      row.className = 'gr-row';
+      row.dataset.gid = g.id;
+
+      // Name cell (right side in RTL = left visually)
+      const nameCell = document.createElement('div');
+      nameCell.className = 'gr-name' + (sel ? ' sel' : '');
+      nameCell.textContent = g.name;
+      nameCell.title = g.name;
+      nameCell.onclick = () => toggleGroup(g.id);
+
+      // Topics cell
+      const topicCell = document.createElement('div');
+      topicCell.className = 'gr-topics';
+      topicCell.id = 'tc-' + g.id;
+
+      if (g.topics && g.topics.length > 0) {
+        // General pill
+        const gp = pill('گشتی', g.id, '0', tset.has('0'));
+        topicCell.appendChild(gp);
+        // Topic pills
+        g.topics.forEach(t => {
+          const tid = String(t.id);
+          topicCell.appendChild(pill(t.name, g.id, tid, tset.has(tid)));
+        });
+      } else {
+        // Just general
+        topicCell.appendChild(pill('گشتی', g.id, '0', tset.has('0')));
       }
-    } else {
-      const pill = makePill('گشتی', g.id, 'none', tSel.has('none'));
-      topicsCol.appendChild(pill);
+
+      row.appendChild(topicCell);
+      row.appendChild(nameCell);
+      rows.appendChild(row);
     }
 
-    row.appendChild(topicsCol);
-    row.appendChild(nameCol);
-    area.appendChild(row);
+    section.appendChild(hdr);
+    section.appendChild(rows);
+    area.appendChild(section);
   }
 }
 
-function makePill(name, gid, tid, on) {
+function pill(name, gid, tid, on) {
   const p = document.createElement('div');
   p.className = 'tpill' + (on ? ' on' : '');
   p.textContent = name;
-  p.dataset.gid = gid;
+  p.dataset.gid = String(gid);
   p.dataset.tid = tid;
-  p.onclick = (e) => { e.stopPropagation(); toggleTopic(gid, tid, p); };
+  p.onclick = e => { e.stopPropagation(); togTopic(gid, tid, p); };
   return p;
 }
 
+// ── Selection logic ───────────────────────────────────────────────────────────
 function toggleGroup(gid) {
-  const g = groups.find(x => x.id === gid);
+  const g = findGroup(gid);
   if (!g) return;
-  const row = document.querySelector(`.gt-row[data-gid="${gid}"]`);
-  const nameCol = row?.querySelector('.gt-name-col');
-
-  if (groupSel.has(gid)) {
+  const currently = groupSel.has(gid) && (topicSel.get(gid)?.size || 0) > 0;
+  if (currently) {
     groupSel.delete(gid);
-    row?.classList.remove('all-sel');
-    nameCol?.classList.remove('grp-sel');
-    // Deselect all topics
-    topicSel.get(gid)?.clear();
-    row?.querySelectorAll('.tpill').forEach(p => p.classList.remove('on'));
+    topicSel.set(gid, new Set());
   } else {
     groupSel.add(gid);
-    row?.classList.add('all-sel');
-    nameCol?.classList.add('grp-sel');
-    // Select all topics
-    const tset = topicSel.get(gid) || new Set();
-    row?.querySelectorAll('.tpill').forEach(p => { tset.add(p.dataset.tid); p.classList.add('on'); });
+    const tset = new Set(['0']);
+    g.topics.forEach(t => tset.add(String(t.id)));
     topicSel.set(gid, tset);
   }
+  refreshRow(gid);
   updateCount();
 }
 
-function toggleTopic(gid, tid, el) {
+function togTopic(gid, tid, el) {
   const tset = topicSel.get(gid) || new Set();
   if (tset.has(tid)) { tset.delete(tid); el.classList.remove('on'); }
   else { tset.add(tid); el.classList.add('on'); groupSel.add(gid); }
   topicSel.set(gid, tset);
-
-  // Update row selection state
-  const row = document.querySelector(`.gt-row[data-gid="${gid}"]`);
-  const nameCol = row?.querySelector('.gt-name-col');
-  const anyOn = tset.size > 0;
-  if (anyOn) { row?.classList.add('all-sel'); nameCol?.classList.add('grp-sel'); }
-  else { groupSel.delete(gid); row?.classList.remove('all-sel'); nameCol?.classList.remove('grp-sel'); }
+  const nameCell = document.querySelector(`.gr-row[data-gid="${gid}"] .gr-name`);
+  if (nameCell) { nameCell.classList.toggle('sel', tset.size > 0); }
+  if (tset.size === 0) groupSel.delete(gid);
   updateCount();
 }
 
-function selAllGroups() {
-  for (const g of groups) {
-    groupSel.add(g.id);
-    const tset = new Set();
-    tset.add(g.is_forum ? '0' : 'none');
-    g.topics.forEach(t => tset.add(String(t.message_thread_id)));
-    topicSel.set(g.id, tset);
+function toggleGrade(grade) {
+  const grps = gradesData[grade] || [];
+  const allSel = grps.every(g => groupSel.has(g.id) && (topicSel.get(g.id)?.size||0) > 0);
+  for (const g of grps) {
+    if (allSel) {
+      groupSel.delete(g.id); topicSel.set(g.id, new Set());
+    } else {
+      groupSel.add(g.id);
+      const tset = new Set(['0']);
+      g.topics.forEach(t => tset.add(String(t.id)));
+      topicSel.set(g.id, tset);
+    }
+    refreshRow(g.id);
+  }
+  updateCount();
+  // Re-render just the grade header button
+  renderTable();
+}
+
+function selAll() {
+  for (const grade in gradesData) {
+    for (const g of gradesData[grade]) {
+      groupSel.add(g.id);
+      const tset = new Set(['0']);
+      g.topics.forEach(t => tset.add(String(t.id)));
+      topicSel.set(g.id, tset);
+    }
   }
   renderTable(); updateCount();
 }
 
-function deselAllGroups() {
+function deselAll() {
   groupSel.clear();
-  for (const g of groups) topicSel.set(g.id, new Set());
+  for (const grade in gradesData) for (const g of gradesData[grade]) topicSel.set(g.id, new Set());
   renderTable(); updateCount();
 }
 
-function selAllTopics() {
-  for (const g of groups) {
-    if (!groupSel.has(g.id)) continue;
-    const tset = new Set();
-    tset.add(g.is_forum ? '0' : 'none');
-    g.topics.forEach(t => tset.add(String(t.message_thread_id)));
-    topicSel.set(g.id, tset);
-  }
-  renderTable(); updateCount();
+function refreshRow(gid) {
+  const nameCell = document.querySelector(`.gr-row[data-gid="${gid}"] .gr-name`);
+  const tset = topicSel.get(gid) || new Set();
+  const sel = groupSel.has(gid) && tset.size > 0;
+  if (nameCell) nameCell.classList.toggle('sel', sel);
+  const tc = document.getElementById('tc-' + gid);
+  if (tc) tc.querySelectorAll('.tpill').forEach(p => p.classList.toggle('on', tset.has(p.dataset.tid)));
 }
 
-function deselAllTopics() {
-  for (const g of groups) topicSel.set(g.id, new Set());
-  groupSel.clear();
-  renderTable(); updateCount();
+function findGroup(gid) {
+  for (const grade in gradesData) { const g = gradesData[grade].find(x => x.id === gid); if (g) return g; }
+  return null;
 }
 
 // ── Targets ───────────────────────────────────────────────────────────────────
 function getTargets() {
   const targets = [];
-  for (const g of groups) {
-    const tset = topicSel.get(g.id) || new Set();
-    for (const tid of tset) {
-      targets.push({
-        chat_id: g.id,
-        thread_id: (tid === 'none' || tid === '0') ? null : parseInt(tid)
-      });
+  for (const grade in gradesData) {
+    for (const g of gradesData[grade]) {
+      const tset = topicSel.get(g.id) || new Set();
+      for (const tid of tset) {
+        targets.push({ chat_id: g.id, thread_id: tid === '0' ? null : parseInt(tid) });
+      }
     }
   }
   return targets;
@@ -600,7 +519,7 @@ function getTargets() {
 function updateCount() {
   const n = getTargets().length;
   document.getElementById('target-num').textContent = n;
-  document.getElementById('sel-count').textContent = n + ' ئامانج';
+  document.getElementById('target-badge').textContent = n + ' ئامانج';
 }
 
 // ── Type / Layout ─────────────────────────────────────────────────────────────
@@ -636,30 +555,31 @@ async function handleFiles(files) {
     const form = new FormData();
     form.append('file', file, file.name);
     try {
-      const r = await fetch('/api/upload', { method:'POST', body:form });
+      const r = await fetch('/api/upload', { method: 'POST', body: form });
       const d = await r.json();
-      if (d.ok) { mediaItems.push({ type: d.type, localPath: d.localPath, originalName: d.originalName, name: file.name }); st('upload-status', '✓ ' + file.name, 'ok'); }
-      else { st('upload-status', '❌ ' + (d.error||'هەڵە'), 'err'); }
+      if (d.ok) {
+        mediaItems.push({ type: d.type, localPath: d.localPath, originalName: d.originalName, name: file.name });
+        st('upload-status', '✓ ' + file.name, 'ok');
+      } else { st('upload-status', '❌ ' + (d.error || 'هەڵە'), 'err'); }
     } catch(e) { st('upload-status', '❌ ' + e.message, 'err'); }
     renderMediaList();
   }
 }
 
-function removeMedia(i) { mediaItems.splice(i,1); renderMediaList(); }
+function removeMedia(i) { mediaItems.splice(i, 1); renderMediaList(); }
 
 function renderMediaList() {
-  const list = document.getElementById('media-list');
-  list.innerHTML = mediaItems.map((item,i) => `
+  document.getElementById('media-list').innerHTML = mediaItems.map((item, i) => `
     <div class="mi">
       <div class="mi-top">
         <div class="mi-icon ${item.type}">${item.type==='photo'?'🖼️':item.type==='video'?'🎬':'📁'}</div>
         <div style="flex:1;min-width:0">
           <div class="mi-name">${esc(item.name)}</div>
-          <div class="mi-sub">${item.file_id?'file_id: '+item.file_id.slice(0,28)+'...':item.localPath||''}</div>
+          <div class="mi-sub">${item.file_id ? 'file_id: '+item.file_id.slice(0,30)+'...' : (item.localPath||'')}</div>
         </div>
         <button class="rm" onclick="removeMedia(${i})">✕</button>
       </div>
-      ${layout==='separate'?`<input class="mi-cap" placeholder="کاپشنی تایبەت..." value="${esc(item.caption||'')}" oninput="mediaItems[${i}].caption=this.value">`:''}
+      ${layout==='separate' ? `<input class="mi-cap" placeholder="کاپشنی تایبەت..." value="${esc(item.caption||'')}" oninput="mediaItems[${i}].caption=this.value">` : ''}
     </div>
   `).join('');
 }
@@ -681,24 +601,25 @@ async function sendAll() {
   document.getElementById('stop-btn').style.display = '';
   document.getElementById('send-btn').disabled = true;
   document.getElementById('log-card').style.display = '';
-  const prog = document.getElementById('prog'); prog.style.display = '';
-  let done=0, errs=0, total=targets.length;
+  document.getElementById('prog').style.display = '';
+  let done = 0, errs = 0, total = targets.length;
 
   for (const t of targets) {
     if (stopFlag) { addLog('⚠ وەستا.'); break; }
-    const gname = groups.find(g=>g.id===t.chat_id)?.title || t.chat_id;
-    const label = gname + (t.thread_id ? ' › ' + t.thread_id : '');
+    const g = findGroup(t.chat_id);
+    const label = (g?.name || t.chat_id) + (t.thread_id ? ' › topic ' + t.thread_id : '');
     try {
-      const body = { chat_id: t.chat_id, thread_id: t.thread_id, items: msgType!=='text'?mediaItems:[], layout, caption, parse_mode: pm };
+      const body = { chat_id: t.chat_id, thread_id: t.thread_id, items: msgType !== 'text' ? mediaItems : [], layout, caption, parse_mode: pm };
       const r = await api('/api/send', body);
       if (r.ok) { done++; addLog('✅ ' + esc(label)); }
-      else { errs++; addLog('❌ ' + esc(label) + ': ' + (r.description||r.error||'هەڵە')); }
+      else { errs++; addLog('❌ ' + esc(label) + ': ' + (r.error || r.description || 'هەڵە')); }
     } catch(e) { errs++; addLog('❌ ' + esc(label) + ': ' + e.message); }
-    document.getElementById('prog-fill').style.width = ((done+errs)/total*100) + '%';
-    document.getElementById('send-prog').textContent = `${done+errs} / ${total}`;
+    document.getElementById('prog-fill').style.width = ((done + errs) / total * 100) + '%';
+    document.getElementById('send-prog').textContent = `${done + errs} / ${total}`;
     await sleep(380);
   }
-  st('send-status', `✅ ${done} نێردرا   ❌ ${errs} شکستهێنا`, done>0?'ok':'err');
+
+  st('send-status', `✅ ${done} نێردرا   ❌ ${errs} شکستهێنا`, done > 0 ? 'ok' : 'err');
   document.getElementById('stop-btn').style.display = 'none';
   document.getElementById('send-btn').disabled = false;
 }
@@ -706,15 +627,17 @@ async function sendAll() {
 function stopSend() { stopFlag = true; }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-async function api(path, body=null) {
-  const r = await fetch(path, body ? {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)} : {});
+async function api(path, body = null) {
+  const r = await fetch(path, body
+    ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }
+    : {});
   return r.json();
 }
-function setArea(html) { const a = document.getElementById('groups-area'); a.className=''; a.innerHTML=html; }
-function st(id,msg,cls='') { const el=document.getElementById(id); if(el){el.textContent=msg;el.className='status '+cls;} }
-function addLog(m) { const l=document.getElementById('log'); l.innerHTML+=m+'<br>'; l.scrollTop=l.scrollHeight; }
-function sleep(ms) { return new Promise(r=>setTimeout(r,ms)); }
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function setArea(html) { document.getElementById('groups-area').innerHTML = html; }
+function st(id, msg, cls = '') { const el = document.getElementById(id); if (el) { el.textContent = msg; el.className = 'status ' + cls; } }
+function addLog(m) { const l = document.getElementById('log'); l.innerHTML += m + '<br>'; l.scrollTop = l.scrollHeight; }
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 </script>
 </body>
 </html>
